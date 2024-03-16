@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Eligibility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+        #main{
+            width: 30%;
+            height: 25%;
+            padding: 1vw;
+            border-radius: 5px;
+            background-color: cadetblue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #main p{
+            text-align: center;
+            padding-bottom: 2vh;
+            font-size: 1.25rem;
+        }
+        #main form input{
+            display: block;
+            width: 100%;
+            padding: 5px 3px;
+            border-radius: 3px;
+            border: none;
+            outline: none;
+            margin-bottom: 2vh;
+            margin-top: 1vh;
+        }
+        button{
+            width: 100%;
+            padding: 5px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            background-color: #003049;
+            color: #fefae0;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        @media(max-width:600px){
+            #main{
+                width: 60%;
+                height: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <p>Vote Eligibility Mechine</p>
+        <form action="" onclick="voteEligibility()">
+            <label for="age">Enter your age</label>
+            <input type="text" name="age" id="age">
+            <button type="button">Check</button>
+        </form>
+    </div>
+   
+    <script>
+        function voteEligibility(){
+            let ageInput = document.getElementById('age');
+            let userInput = ageInput.value;
+            // let isValid = true;
+
+            if(userInput === ''){
+                ageInput.style.outline = '1px solid red';
+                return false;
+            }
+            else if(isNaN(userInput)){
+                alert("Only numbers are accepted.");
+                return false;
+            } else if(userInput >= 18){
+                alert(`Your age is ${userInput}, so you are eligible to vote.`);
+                return false;
+            } else {
+                alert(`Your age is ${userInput}, you are not eligible to vote.`);
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
